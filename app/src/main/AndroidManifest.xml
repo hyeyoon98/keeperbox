@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.kr.mergepoint.aos_delivery_box">
+    package="co.kr.mergepoint.aos_keeperbox">
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MenuActivity"/>
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>

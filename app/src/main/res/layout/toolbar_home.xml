@@ -33,6 +33,5 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/menubar"
             android:onClick="@{onClick}"/>
-        /Users/Alicia/Desktop/aos_delivery_box/app
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

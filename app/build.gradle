@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "co.kr.mergepoint.aos_delivery_box"
+        applicationId "co.kr.mergepoint.aos_keeperbox"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
