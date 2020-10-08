@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.kr.mergepoint.aos_keeperbox">
+    package="co.kr.mergepoint.aos_keeperbox"
+    >
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,7 @@
         </activity>
         <activity android:name=".MenuActivity"/>
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
     </application>
 
 </manifest>
