@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.apache.http.client.methods.HttpPost;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -62,53 +65,20 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void   addItemToSheet(Context context, String userName, String userId, String userPw, String userPhoneNumber) {
-        final String name=userName;
-        final String id=userId;
-        final String pw=userPw;
-        final String phoneNumber=userPhoneNumber;
-        loading =  ProgressDialog.show(context,"Loading","please wait",false,true);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/웹앱으로배포한url/exec",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        loading.dismiss();
-                        Toast.makeText(this,response,Toast.LENGTH_SHORT).show();
-                        finish();
+    /*구글 스프레드 시트 서버 통산*/
+    private class HttpTask extends AsyncTask<String, Void, Integer> {
 
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> parmas = new HashMap<>();
+        @Override
+        protected Integer doInBackground(String... strings) {
+            try {
+                HttpPost
 
-                //here we pass params
-
-                parmas.put("name",name);
-                parmas.put("id",id);
-                parmas.put("pw",pw);
-                parmas.put("phone",phoneNumber);
-
-                return parmas;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        };
-
-        int socketTimeOut = 50000;// u can change this .. here it is 50 seconds
-
-        RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        stringRequest.setRetryPolicy(retryPolicy);
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        queue.add(stringRequest);
+            return null;
+        }
     }
-}
 
-
+//https://script.google.com/macros/s/AKfycbxBpBsqs7ZHvgwqGcBN7L93mkevbRcC88_FJt0H6oPTC7JdCve1/exec
 }
